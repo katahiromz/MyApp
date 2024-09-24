@@ -30,6 +30,7 @@
 #include <string> // std::string, std::wstring など
 #include <vector> // std::vector
 #include <memory> // std::shared_ptr, std::make_shared など
+#include <algorithm> // std::sort, std::move などの基本アルゴリズム
 #include <cstdlib> // C標準ライブラリ
 #include <cstdio> // C標準入出力ライブラリ
 #include <cmath> // C数学ライブラリ
