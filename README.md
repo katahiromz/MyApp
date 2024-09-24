@@ -51,4 +51,7 @@ CMakeを使ったビルドは、ソリューションファイルを使う方法
 
 - Win32 Programmer's Reference (ご自分で自己責任でお探しください)
 - C++日本語リファレンス ― https://cpprefjp.github.io/
-- UPX ― https://upx.github.io/
+- テキストエディタ「サクラエディタ」 ― https://sakura-editor.github.io/
+- リソース編集ツール「リソーエディタ」 ― https://katahiromz.fc2.page/risoheditor/
+- Win32開発のお供に「MsgCrack」 ― https://katahiromz.fc2.page/msgcrack/
+- EXE圧縮ツール「UPX」 ― https://upx.github.io/
