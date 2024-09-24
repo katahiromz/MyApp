@@ -224,7 +224,7 @@ BOOL MyApp::OnCreate(HWND hwnd, LPCREATESTRUCT lpCreateStruct)
     g_hMainWnd = hwnd;
 
     // TODO: ウィンドウ作成時
-    return TRUE;
+    return TRUE; // 成功
 }
 
 // WM_SIZE
