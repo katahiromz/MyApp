@@ -23,6 +23,7 @@ public:
     BOOL save_settings();
     INT run();
     void exit();
+    void unittest();
 
 #ifdef MYAPP_IS_DIALOG // ダイアログアプリか？
     static INT_PTR CALLBACK DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
@@ -55,6 +56,12 @@ MyApp::MyApp()
 MyApp::~MyApp()
 {
     mdbg_footmark();
+}
+
+// アプリの単体テスト
+void MyApp::unittest()
+{
+    // TODO: テストしたいことを書く。assertを使ってもよい
 }
 
 // アプリ初期化
@@ -104,6 +111,9 @@ BOOL MyApp::init(HINSTANCE hInstance, INT argc, TCHAR **argv, INT nCmdShow)
     ::ShowWindow(hwnd, nCmdShow);
     ::UpdateWindow(hwnd);
 #endif
+
+    // アプリの単体テストをここで行う
+    unittest();
 
     return TRUE; // 成功
 }
@@ -403,7 +413,7 @@ WinMain(HINSTANCE   hInstance,
     assert(MObject::s_cAliveObjects == 0);
 
     // ハンドルリークの検出（デバッグ終了時、個数が大きくなっていないか、ときどき確認すること）
-#if (_WIN32_WINNT >= 0x0500) && !defined(NDEBUG)
+#if (_WIN32_WINNT >= 0x0500) && !defined(NDEBUG) // Windows 2000以降、デバッグ時のみ
     TCHAR szText[MAX_PATH];
     wnsprintf(szText, _countof(szText), TEXT("GDI Objects: %ld, User Objects: %ld\n"),
         GetGuiResources(GetCurrentProcess(), GR_GDIOBJECTS),
@@ -411,8 +421,8 @@ WinMain(HINSTANCE   hInstance,
     OutputDebugString(szText);
 #endif
 
-    // メモリーリークの検出（Visual C++のみ）
-#if defined(_MSC_VER) && !defined(NDEBUG)
+    // メモリーリークの検出
+#if defined(_MSC_VER) && !defined(NDEBUG) // Visual C++かつデバッグ時のみ
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 #endif
 
