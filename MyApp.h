@@ -64,8 +64,8 @@ inline LPCTSTR LoadStringDx(INT nID)
     // バッファサイズ。ちょっと大きいが対象変数がstaticなのでまあまあ大丈夫
     const INT c_buf_size = 1024;
     // リングバッファで３回連続で呼ばれても大丈夫
-    static TCHAR s_szBuff[3][c_buf_size];
-    static INT s_iBuff = 0; // リングバッファでのインデックス位置を覚えておく
+    static TCHAR s_szBuff[3][c_buf_size]; // staticなのでこれを戻り値にしても大丈夫
+    static INT s_iBuff = 0; // リングバッファでのインデックス位置をstatic変数で覚えておく
     LPTSTR ret = s_szBuff[s_iBuff]; // バッファを選ぶ
     ret[0] = 0; // LoadString失敗時の安全策
     LoadString(g_hInst, nID, ret, c_buf_size);
