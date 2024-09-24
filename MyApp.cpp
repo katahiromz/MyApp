@@ -181,7 +181,6 @@ BOOL MyApp::save_settings()
 BOOL MyApp::OnInitDialog(HWND hwnd, HWND hwndFocus, LPARAM lParam)
 {
     g_hMainWnd = hwnd;
-    SetWindowLongPtr(hwnd, DWLP_USER, lParam);
     return TRUE; // オートフォーカス
 }
 
