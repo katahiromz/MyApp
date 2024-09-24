@@ -235,6 +235,7 @@ void MyApp::OnSize(HWND hwnd, UINT state, int cx, int cy)
 // WM_PAINT
 void MyApp::OnPaint(HWND hwnd)
 {
+    // 描画開始
     PAINTSTRUCT ps;
     if (HDC hdc = ::BeginPaint(hwnd, &ps))
     {
@@ -243,20 +244,24 @@ void MyApp::OnPaint(HWND hwnd)
         assert(rc.left == 0);
         assert(rc.top == 0);
 
+        // バッテンを描く
         ::SelectObject(hdc, GetStockPen(BLACK_PEN));
         ::MoveToEx(hdc, 0, 0, NULL);
         ::LineTo(hdc, rc.right, rc.bottom);
         ::MoveToEx(hdc, rc.right, 0, NULL);
         ::LineTo(hdc, 0, rc.bottom);
 
+        // だ円を描く
         ::SelectObject(hdc, GetStockPen(DC_BRUSH));
         ::SetDCBrushColor(hdc, RGB(255, 255, 0));
         ::Ellipse(hdc, 0, 0, rc.right, rc.bottom);
 
+        // テキストを描画
         ::SetTextColor(hdc, RGB(0, 0, 0));
         ::DrawTextW(hdc, L"こんにちは、ウィンドウアプリ!", -1, &rc,
                     DT_SINGLELINE | DT_CENTER | DT_VCENTER | DT_NOPREFIX);
 
+        // 描画終わり
         ::EndPaint(hwnd, &ps);
     }
 }
