@@ -201,6 +201,7 @@ MyApp::DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     // メッセージの種類に応じて処理を行う
     switch (uMsg)
     {
+        // OnInitDialogやOnCommand などのメッセージハンドラの入力には MsgCrackというツールを使うこと
         HANDLE_MSG(hwnd, WM_INITDIALOG, pThis->OnInitDialog);
         HANDLE_MSG(hwnd, WM_COMMAND, pThis->OnCommand);
     default:
@@ -294,6 +295,7 @@ MyApp::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     // メッセージの種類に応じて処理を行う
     switch (uMsg)
     {
+        // OnCreateやOnCommand などのメッセージハンドラの入力には MsgCrackというツールを使うこと
         HANDLE_MSG(hwnd, WM_CREATE, pThis->OnCreate);
         HANDLE_MSG(hwnd, WM_COMMAND, pThis->OnCommand);
         HANDLE_MSG(hwnd, WM_SIZE, pThis->OnSize);
