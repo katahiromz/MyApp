@@ -20,6 +20,10 @@ katahiromzが作ったWin32アプリのテンプレートです。
 - `resource.h` ― リソースID群
 - `targetver.h` ― ターゲットOSバージョン
 
+## ビルド方法
+
+普通に CMake と C++/Win32 コンパイラを使ってください。
+
 ## 使用許諾と著作権
 
 - License: MIT
