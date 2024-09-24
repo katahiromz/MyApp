@@ -370,9 +370,13 @@ WinMain(HINSTANCE   hInstance,
     // オブジェクトの生存個数確認
     assert(MObject::s_cAliveObjects == 0);
 
+#if 1
     // ビルド依存の値をメルセンヌツイスター乱数の種にする
     init_genrand(AntiRE_GetBuildSpecificValue());
-    //init_genrand(::GetTickCount()); // こっちでもいいかも？
+#else
+    // 毎回、異なる種をメルセンヌツイスター乱数に使用する。
+    init_genrand(::GetTickCount()); // こっちでもいいかも？
+#endif
 
 #ifdef UNICODE // アプリがUnicode版？
     // 非標準のコンパイラ向けUnicodeサポート
