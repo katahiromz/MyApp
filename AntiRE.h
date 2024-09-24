@@ -10,7 +10,7 @@ extern "C" {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-#if 0
+#if 0 // どこで失敗しているのか確認
     #define ANTIRE_DEBUG(status) MessageBoxA(NULL, status, "AntiRE", MB_ICONERROR)
 #else
     #define ANTIRE_DEBUG(status)
