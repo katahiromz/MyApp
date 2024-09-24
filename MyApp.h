@@ -52,6 +52,21 @@
 #pragma comment(lib, "shell32.lib")
 #pragma comment(lib, "shlwapi.lib")
 
+// アプリのインスタンス
+extern HINSTANCE g_hInst;
+// メインウィンドウのハンドル
+extern HWND g_hMainWnd;
+
+// リソース文字列を読み込むヘルパー関数
+inline LPCTSTR LoadStringDx(INT nID)
+{
+    static TCHAR s_szBuff[3][1024];
+    static INT s_iBuff = 0;
+    s_szBuff[s_iBuff][0] = 0;
+    LoadString(g_hInst, nID, s_szBuff[s_iBuff], _countof(s_szBuff[s_iBuff]));
+    return s_szBuff[s_iBuff++];
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // MObject クラス。このアプリで使う動的に確保するオブジェクトは基本的にこれを継承しようかな、どうしようかな
 

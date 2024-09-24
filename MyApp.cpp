@@ -100,7 +100,8 @@ BOOL MyApp::init(HINSTANCE hInstance, INT argc, TCHAR **argv, INT nCmdShow)
     wcx.lpszClassName = MYAPP_CLASSNAME;
     if (!::RegisterClassEx(&wcx))
     {
-        ::MessageBox(NULL, TEXT("Failed to RegisterClassEx"), MYAPP_TITLE, MB_ICONERROR);
+        // 失敗メッセージ
+        ::MessageBox(NULL, LoadStringDx(IDS_REGWNDFAIL), MYAPP_TITLE, MB_ICONERROR);
         return FALSE; // 失敗
     }
 
@@ -112,7 +113,7 @@ BOOL MyApp::init(HINSTANCE hInstance, INT argc, TCHAR **argv, INT nCmdShow)
                                  NULL, NULL, hInstance, this);
     if (!hwnd) // 作成失敗
     {
-        ::MessageBox(NULL, TEXT("Failed to CreateWindowEx."), MYAPP_TITLE, MB_ICONERROR);
+        ::MessageBox(NULL, LoadStringDx(IDS_MAKEWNDFAIL), MYAPP_TITLE, MB_ICONERROR);
         return FALSE; // 失敗
     }
 

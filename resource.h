@@ -7,6 +7,9 @@
 
 #define IDR_MAINMENU                        100
 
+#define IDS_REGWNDFAIL                      100
+#define IDS_MAKEWNDFAIL                     101
+
 #define ID_EXIT                             100
 
 #ifdef APSTUDIO_INVOKED
