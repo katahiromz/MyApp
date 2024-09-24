@@ -5,6 +5,8 @@
 #define _CRT_SECURE_NO_WARNINGS // Visual C++におけるfopenなどの警告を無視する
 #define _USE_MATH_DEFINES // Visual C++でも円周率定数 M_PI を使いたい
 
+#include "targetver.h" // アプリの対象OSバージョンを選ぶ
+
 // メモリーリークを検出（Visual C++のみ）
 #if defined(_MSC_VER) && !defined(NDEBUG) && !defined(_CRTDBG_MAP_ALLOC)
     #define _CRTDBG_MAP_ALLOC
