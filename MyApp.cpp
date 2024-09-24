@@ -188,6 +188,7 @@ BOOL MyApp::OnInitDialog(HWND hwnd, HWND hwndFocus, LPARAM lParam)
 /*static*/ INT_PTR CALLBACK
 MyApp::DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
+    // ウィンドウハンドルにアプリ オブジェクト ポインタを関連付ける
     auto pThis = reinterpret_cast<MyApp *>(GetWindowLongPtr(hwnd, DWLP_USER));
     if (!pThis && uMsg == WM_INITDIALOG)
     {
@@ -197,11 +198,13 @@ MyApp::DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     if (!pThis)
         return 0;
 
+    // メッセージの種類に応じて処理を行う
     switch (uMsg)
     {
         HANDLE_MSG(hwnd, WM_INITDIALOG, pThis->OnInitDialog);
         HANDLE_MSG(hwnd, WM_COMMAND, pThis->OnCommand);
     default:
+        // ダイアログプロシージャのアプリ側ではデフォルトの処理をしない
         break;
     }
 
@@ -278,6 +281,7 @@ void MyApp::OnDestroy(HWND hwnd)
 /*static*/ LRESULT CALLBACK
 MyApp::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
+    // ウィンドウハンドルにアプリ オブジェクト ポインタを関連付ける
     auto pThis = reinterpret_cast<MyApp *>(GetWindowLongPtr(hwnd, GWLP_USERDATA));
     if (!pThis && uMsg == WM_CREATE)
     {
@@ -286,6 +290,8 @@ MyApp::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     }
     if (!pThis)
         return ::DefWindowProc(hwnd, uMsg, wParam, lParam); // デフォルトの処理
+
+    // メッセージの種類に応じて処理を行う
     switch (uMsg)
     {
         HANDLE_MSG(hwnd, WM_CREATE, pThis->OnCreate);
