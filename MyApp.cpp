@@ -65,6 +65,7 @@ BOOL MyApp::init(HINSTANCE hInstance, INT argc, TCHAR **argv, INT nCmdShow)
     // 必要ならば設定を読み込む
     //load_settings();
 
+    // ここでインスタンスハンドルを記憶しておくと便利
     g_hInst = hInstance;
 
     // コモンコントロールを初期化
@@ -180,7 +181,9 @@ BOOL MyApp::save_settings()
 // WM_INITDIALOG
 BOOL MyApp::OnInitDialog(HWND hwnd, HWND hwndFocus, LPARAM lParam)
 {
+    // ここでメインウィンドウを記憶しておくと便利
     g_hMainWnd = hwnd;
+
     return TRUE; // オートフォーカス
 }
 
@@ -217,6 +220,7 @@ MyApp::DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 // WM_CREATE
 BOOL MyApp::OnCreate(HWND hwnd, LPCREATESTRUCT lpCreateStruct)
 {
+    // ここでメインウィンドウを記憶しておくと便利
     g_hMainWnd = hwnd;
 
     // TODO: ウィンドウ作成時
