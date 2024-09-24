@@ -22,7 +22,7 @@ public:
     BOOL load_settings();
     BOOL save_settings();
     INT run();
-    void exit();
+    void exit_app();
     void unittest();
 
 #ifdef MYAPP_IS_DIALOG // ダイアログアプリか？
@@ -345,7 +345,7 @@ void MyApp::OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
     }
 }
 
-void MyApp::exit()
+void MyApp::exit_app()
 {
     // TODO: アプリ終了時
     mdbg_footmark();
@@ -372,7 +372,8 @@ INT MyApp_Main(HINSTANCE hInstance, INT argc, TCHAR **argv, INT nCmdShow)
         ret = app->run();
 
     // アプリ終了
-    app->exit();
+    app->exit_app();
+
     return ret; // 終了コード
 }
 
