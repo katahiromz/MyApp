@@ -361,7 +361,7 @@ WinMain(HINSTANCE   hInstance,
         LPSTR       lpCmdLine,
         INT         nCmdShow)
 {
-    // オブジェクトの個数確認
+    // オブジェクトの生存個数確認
     assert(MObject::s_cAliveObjects == 0);
 
     // ビルド依存の値をメルセンヌツイスター乱数の種にする
@@ -376,7 +376,7 @@ WinMain(HINSTANCE   hInstance,
     INT ret = MyApp_Main(hInstance, __argc, __argv, nCmdShow);
 #endif
 
-    // オブジェクトの個数確認
+    // オブジェクトの生存個数確認
     assert(MObject::s_cAliveObjects == 0);
 
     // ハンドルリークの検出
