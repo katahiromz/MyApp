@@ -20,6 +20,11 @@ katahiromzが作ったWin32アプリのテンプレートです。
 - `resource.h` ― リソースID群
 - `targetver.h` ― ターゲットOSバージョン
 
+## 使用許諾と著作権
+
+- License: MIT
+- Copyright (C) 2024 katahiromz <katayama.hirofumi.mz@gmail.com>
+
 ## 参照
 
 - UPX https://upx.github.io/
