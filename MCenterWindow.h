@@ -1,4 +1,4 @@
-// MCenterWindow.h --- ウィンドウまたはメッセージボックスを中央揃えする
+// MCenterWindow.h --- ウィンドウまたはメッセージボックスを中央寄せする
 #pragma once
 
 #include <windows.h>
@@ -36,7 +36,7 @@ inline SIZE SizeFromRectDx(LPCRECT prc)
     return { prc->right - prc->left, prc->bottom - prc->top };
 }
 
-// ウィンドウを中央揃えする
+// ウィンドウを中央寄せする
 inline VOID CenterWindowDx(HWND hwnd)
 {
     BOOL bChild = !!(GetWindowStyle(hwnd) & WS_CHILD);
@@ -121,7 +121,7 @@ inline HHOOK _hookCenterMsgBoxDx(BOOL bHook)
 #endif  // ndef NO_CENTER_MSGBOX
 }
 
-// 中央揃えするメッセージボックス
+// 中央寄せするメッセージボックス
 inline INT MsgBoxDx(HWND hwnd, LPCTSTR pszText, LPCTSTR pszTitle, UINT uType)
 {
     _hookCenterMsgBoxDx(TRUE);
