@@ -93,7 +93,7 @@ BOOL MyApp::init(HINSTANCE hInstance, INT argc, TCHAR **argv, INT nCmdShow)
     HWND hwnd = ::CreateWindowEx(exstyle, MYAPP_CLASSNAME, MYAPP_TITLE, style,
                                  CW_USEDEFAULT, CW_USEDEFAULT, m_cx, m_cy,
                                  NULL, NULL, hInstance, this);
-    if (!hwnd)
+    if (!hwnd) // 作成失敗
     {
         ::MessageBox(NULL, TEXT("Failed to CreateWindowEx."), MYAPP_TITLE, MB_ICONERROR);
         return FALSE; // 失敗
@@ -302,15 +302,15 @@ void MyApp::OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
 {
     switch (id)
     {
-#ifdef MYAPP_IS_DIALOG // ダイアログアプリか！E
+#ifdef MYAPP_IS_DIALOG // ダイアログアプリか？
     case IDOK:
     case IDCANCEL:
-        // ダイアログを終?E
+        // ダイアログを終了
         ::EndDialog(hwnd, id);
         break;
 #else
-    case 100:
-        // メインウィンドウを破?E
+    case ID_EXIT:
+        // メインウィンドウを破棄
         ::DestroyWindow(hwnd);
         break;
 #endif
