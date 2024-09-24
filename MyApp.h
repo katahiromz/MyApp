@@ -26,6 +26,7 @@
 #include <shellapi.h> // シェルAPI ヘッダ
 #include <shlobj.h> // シェル オブジェクト群 ヘッダ
 #include <shlwapi.h> // シェル軽量API ヘッダ
+#include <tchar.h> // ジェネリックテキストマッピング
 #include <string> // std::string, std::wstring など
 #include <vector> // std::vector
 #include <memory> // std::shared_ptr, std::make_shared など
