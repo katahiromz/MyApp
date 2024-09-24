@@ -6,6 +6,7 @@ katahiromz（片山博文MZ）氏が作ったWin32アプリのテンプレート
 
 ## ファイル群
 
+- `res` ― リソースフォルダ
 - `.gitignore` ― Gitが無視すべきファイル群を記載
 - `AntiRE.h` ― 逆工学対策
 - `CMakeLists.txt` ― ビルドツール CMake用の設定ファイル
