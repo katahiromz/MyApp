@@ -28,7 +28,7 @@ Git コマンドがインストールされていれば、
 git clone https://github.com/katahiromz/MyApp
 ```
 
-でMyAppをダウンロードできます。ダウンロードが終わったら、普通に CMake と C++11/Win32 コンパイラを使ってビルドしてください。
+でMyAppのソースコードをダウンロードできます。ダウンロードが終わったら、普通に CMake と C++11/Win32 コンパイラを使ってビルドしてください。
 
 C++11/Win32 コンパイラで迷ったら、WinXP互換の RosBE (ReactOS Build Environment) でも使ってやってください。
 RosBEでのビルド方法は次の通りです。
@@ -66,6 +66,13 @@ CMakeを使ったビルドは、ソリューションファイルを使う方法
 - `GetModuleFileName`関数でEXEファイルの場所が分かります。
 - ビットマップ画像やWAVE音声などを追加してみましょう。
 - パスファイル名を操作したい場合は`<shlwapi.h>`の`PathFindExtension`、`PathFindFileName`、`PathRemoveExtension`などの関数を使ってみましょう。
+
+## すごいアプリが出来たら...
+
+- Vector（ベクター）に登録してみましょう。
+- マイクロソフトのストアに登録してみましょう。
+- GitHubでソースコードを公開してみましょう。
+- シェアウェアでお金儲けに挑戦してみましょう。
 
 ## 使用許諾と著作権
 
