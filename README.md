@@ -49,4 +49,6 @@ CMakeを使ったビルドは、ソリューションファイルを使う方法
 
 ## 参照
 
-- UPX https://upx.github.io/
+- Win32 Programmer's Reference (ご自分で自己責任でお探しください)
+- C++日本語リファレンス ― https://cpprefjp.github.io/
+- UPX ― https://upx.github.io/
