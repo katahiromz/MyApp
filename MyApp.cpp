@@ -245,7 +245,7 @@ void MyApp::OnPaint(HWND hwnd)
         assert(rc.top == 0);
 
         // バッテンを描く
-        ::SelectObject(hdc, GetStockPen(BLACK_PEN));
+        ::SelectObject(hdc, GetStockPen(BLACK_PEN)); // 黒いペン
         ::MoveToEx(hdc, 0, 0, NULL);
         ::LineTo(hdc, rc.right, rc.bottom);
         ::MoveToEx(hdc, rc.right, 0, NULL);
@@ -253,11 +253,11 @@ void MyApp::OnPaint(HWND hwnd)
 
         // だ円を描く
         ::SelectObject(hdc, GetStockPen(DC_BRUSH));
-        ::SetDCBrushColor(hdc, RGB(255, 255, 0));
+        ::SetDCBrushColor(hdc, RGB(255, 255, 0)); // 黄色のRGB値
         ::Ellipse(hdc, 0, 0, rc.right, rc.bottom);
 
         // テキストを描画
-        ::SetTextColor(hdc, RGB(0, 0, 0));
+        ::SetTextColor(hdc, RGB(0, 0, 0)); // 黒色のテキスト色
         ::DrawTextW(hdc, L"こんにちは、ウィンドウアプリ!", -1, &rc,
                     DT_SINGLELINE | DT_CENTER | DT_VCENTER | DT_NOPREFIX);
 
