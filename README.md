@@ -22,7 +22,14 @@ katahiromzが作ったWin32アプリのテンプレートです。
 
 ## ビルド方法
 
-普通に CMake と C++/Win32 コンパイラを使ってください。
+普通に CMake と C++11/Win32 コンパイラを使ってください。
+C++11/Win32 コンパイラで迷ったら、WinXP互換の RosBE (ReactOS Build Environment) でも使ってやってください。
+
+```cmd
+cd (MyAppのフォルダへのパス)
+cmake -G Ninja .
+ninja
+```
 
 ## 使用許諾と著作権
 
