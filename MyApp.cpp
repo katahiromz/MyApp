@@ -344,7 +344,7 @@ INT MyApp_Main(HINSTANCE hInstance, INT argc, TCHAR **argv, INT nCmdShow)
     //AntiRE_DetectTimeAttack(); // Detect time attack (WARNING: License compliant?)
 #endif
 
-    // アプリオブジェクトを動的に作成する。これにより逆工学がかなりハードになる
+    // アプリオブジェクトを動的に作成する。これにより逆工学が少しハードになる
     INT ret = -1;
     auto app = std::make_shared<MyApp>();
     if (app->init(hInstance, argc, argv, nCmdShow))
