@@ -1,4 +1,4 @@
-// MyApp.cpp --- 私のアプリのソース
+// MyApp.cpp --- 私のアプリのソース -*- C++ -*-
 #include "MyApp.h" // 私のアプリのヘッダ
 
 #define MYAPP_CLASSNAME   TEXT("MyApp")  // アプリのウィンドウクラス

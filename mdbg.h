@@ -1,4 +1,4 @@
-// mdbg.h --- Debugging output for Win32
+// mdbg.h --- Debugging output for Win32 -*- C++ -*-
 #pragma once
 
 inline void mdbg_vprintfA(const char *fmt, va_list va)

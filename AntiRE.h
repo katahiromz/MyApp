@@ -1,4 +1,4 @@
-// AntiRE.h --- Win32 anti-reverse engineering techniques
+// AntiRE.h --- Win32 anti-reverse engineering techniques  -*- C++ -*-
 
 #pragma once
 
