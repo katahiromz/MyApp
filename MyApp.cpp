@@ -360,6 +360,7 @@ INT MyApp_Main(HINSTANCE hInstance, INT argc, TCHAR **argv, INT nCmdShow)
 // オブジェクト生存数確認用の変数
 LONG MObject::s_cAliveObjects = 0;
 
+// Windowsアプリのメイン関数
 INT WINAPI
 WinMain(HINSTANCE   hInstance,
         HINSTANCE   hPrevInstance,
