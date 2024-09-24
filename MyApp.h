@@ -13,6 +13,11 @@
     #include <crtdbg.h>
 #endif
 
+// Unicodeサポートの一貫性を要求
+#if defined(UNICODE) != defined(_UNICODE)
+    #error You lose.
+#endif
+
 // ヘッダをインクルードする。必要のないものはコンパイルにかかる時間に影響するので削ってもいい。
 #include <windows.h> // ウィンドウズ 標準ヘッダ
 #include <windowsx.h> // ウィンドウズ ヘルパーマクロ ヘッダ
