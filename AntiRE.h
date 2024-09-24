@@ -4,7 +4,9 @@
 
 #include <windows.h>
 #include <intrin.h> // For __cpuid
-extern "C" {
+
+extern "C"
+{
     #include "mt19937ar.h" // Mersenne Twister Random Generator
 }
 
@@ -15,6 +17,8 @@ extern "C" {
 #else
     #define ANTIRE_DEBUG(status)
 #endif
+
+// 逆工学対策のため、特定の条件でExitProcess 関数を使ってプロセスを終了させる
 
 // Detect debugger
 inline void AntiRE_DetectDebugger(void)
