@@ -60,11 +60,14 @@ extern HWND g_hMainWnd;
 // リソース文字列を読み込むヘルパー関数
 inline LPCTSTR LoadStringDx(INT nID)
 {
-    static TCHAR s_szBuff[3][1024];
+    const INT c_buf_size = 1024;
+    static TCHAR s_szBuff[3][c_buf_size];
     static INT s_iBuff = 0;
-    s_szBuff[s_iBuff][0] = 0;
-    LoadString(g_hInst, nID, s_szBuff[s_iBuff], _countof(s_szBuff[s_iBuff]));
-    return s_szBuff[s_iBuff++];
+    LPTSTR ret = s_szBuff[s_iBuff];
+    ret[0] = 0;
+    LoadString(g_hInst, nID, ret, c_buf_size);
+    s_iBuff = (s_iBuff + 1) % _countof(s_szBuff);
+    return ret;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
