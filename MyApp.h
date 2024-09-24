@@ -61,13 +61,17 @@ extern HWND g_hMainWnd;
 // リソース文字列を読み込むヘルパー関数
 inline LPCTSTR LoadStringDx(INT nID)
 {
+    // バッファサイズ。ちょっと大きいが対象変数がstaticなのでまあまあ大丈夫
     const INT c_buf_size = 1024;
+    // リングバッファで３回連続で呼ばれても大丈夫
     static TCHAR s_szBuff[3][c_buf_size];
-    static INT s_iBuff = 0;
-    LPTSTR ret = s_szBuff[s_iBuff];
-    ret[0] = 0;
+    static INT s_iBuff = 0; // リングバッファでのインデックス位置を覚えておく
+    LPTSTR ret = s_szBuff[s_iBuff]; // バッファを選ぶ
+    ret[0] = 0; // LoadString失敗時の安全策
     LoadString(g_hInst, nID, ret, c_buf_size);
+    // 次の位置へ移動。余りを使って、くるくる回転
     s_iBuff = (s_iBuff + 1) % _countof(s_szBuff);
+    // 格納したバッファへのポインタを返す
     return ret;
 }
 
