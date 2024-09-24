@@ -14,20 +14,28 @@ HWND g_hMainWnd = NULL;
 class MyApp : public MObject
 {
 public:
+    // 初期化関連
     MyApp();
+    BOOL init(HINSTANCE hInstance, INT argc, TCHAR **argv, INT nCmdShow);
+
+    // 終了関連
+    void exit_app();
     ~MyApp();
 
-    BOOL init(HINSTANCE hInstance, INT argc, TCHAR **argv, INT nCmdShow);
+    // 設定関連
     void reset_settings();
     BOOL load_settings();
     BOOL save_settings();
+
+    // その他
     INT run();
-    void exit_app();
     void unittest();
 
 #ifdef MYAPP_IS_DIALOG // ダイアログアプリか？
+    // ダイアログプロシージャ
     static INT_PTR CALLBACK DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 #else
+    // ウィンドウプロシージャ
     static LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 #endif
 
@@ -43,6 +51,7 @@ public:
     void OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify);
 
 protected:
+    // メンバー変数群
     INT m_cx = CW_USEDEFAULT, m_cy = CW_USEDEFAULT; // ウィンドウのサイズ
 };
 
