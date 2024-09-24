@@ -113,7 +113,7 @@ INT MyApp::run()
     mdbg_footmark();
 #ifdef MYAPP_IS_DIALOG // ダイアログアプリか？
     // このダイアログはモーダルなので、メッセージループは要らない
-    return (INT)::DialogBoxParam(g_hInst, MAKEINTRESOURCE(100), NULL, DialogProc, (LPARAM)this);
+    return (INT)::DialogBoxParam(g_hInst, MAKEINTRESOURCE(IDD_MAINDLG), NULL, DialogProc, (LPARAM)this);
 #else
     // メッセージループ
     MSG msg;
