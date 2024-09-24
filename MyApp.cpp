@@ -366,8 +366,10 @@ WinMain(HINSTANCE   hInstance,
 
     // ビルド依存の値をメルセンヌツイスター乱数の種にする
     init_genrand(AntiRE_GetBuildSpecificValue());
+    //init_genrand(::GetTickCount()); // こっちでもいいかも？
 
 #ifdef UNICODE // アプリがUnicode版？
+    // 非標準のコンパイラ向けUnicodeサポート
     INT argc;
     LPWSTR *wargv = ::CommandLineToArgvW(::GetCommandLineW(), &argc);
     INT ret = MyApp_Main(hInstance, argc, wargv, nCmdShow);
