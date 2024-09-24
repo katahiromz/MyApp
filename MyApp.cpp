@@ -1,6 +1,5 @@
 // MyApp.cpp --- 私のアプリのソース
 #include "MyApp.h" // 私のアプリのヘッダ
-#include "AntiRE.h" // 逆工学対策
 
 #define MYAPP_CLASSNAME   TEXT("MyApp")  // アプリのウィンドウクラス
 #define MYAPP_TITLE       TEXT("MyApp Ver.0.0") // アプリのタイトル
@@ -364,6 +363,9 @@ WinMain(HINSTANCE   hInstance,
 {
     // オブジェクトの個数確認
     assert(MObject::s_cAliveObjects == 0);
+
+    // ビルド依存の値をメルセンヌツイスター乱数の種にする
+    init_genrand(AntiRE_GetBuildSpecificValue());
 
 #ifdef UNICODE // アプリがUnicode版？
     INT argc;

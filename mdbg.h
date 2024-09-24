@@ -11,6 +11,7 @@ inline void mdbg_vprintfA(const char *fmt, va_list va)
     wvnsprintfA(buf, _countof(buf), fmt, va);
 #endif
     OutputDebugStringA(buf);
+    fputs(buf, stdout);
 #endif
 }
 
@@ -24,6 +25,7 @@ inline void mdbg_vprintfW(const wchar_t *fmt, va_list va)
     wvnsprintfW(buf, _countof(buf), fmt, va);
 #endif
     OutputDebugStringW(buf);
+    fputws(buf, stdout);
 #endif
 }
 

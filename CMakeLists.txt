@@ -47,9 +47,9 @@ endif()
 ##############################################################################
 
 # MyApp.exe
-add_executable(MyApp WIN32 MyApp.cpp MyApp_res.rc)
+add_executable(MyApp WIN32 MyApp.cpp MyApp_res.rc mt19937ar.c)
 target_compile_definitions(MyApp PRIVATE -DUNICODE -D_UNICODE) # Unicode support
-target_link_libraries(MyApp PRIVATE comctl32 comdlg32 shlwapi)
+target_link_libraries(MyApp PRIVATE comctl32 comdlg32 shell32 shlwapi)
 if(MSVC)
     target_link_options(MyApp PRIVATE /MANIFEST:NO) # No additional manifest
 endif()

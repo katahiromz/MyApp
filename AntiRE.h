@@ -4,6 +4,9 @@
 
 #include <windows.h>
 #include <intrin.h> // For __cpuid
+extern "C" {
+    #include "mt19937ar.h" // Mersenne Twister Random Generator
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -84,7 +87,7 @@ inline void AntiRE_DetectVirtualMachine(void)
         :
         : "x0"
     );
-    if (strstr(brand, "QEMU") != NULL)  // Check QEMU emulation
+    if (strstr(brand, "QEMU") != NULL) // Check QEMU emulation
     {
         ANTIRE_DEBUG("Virtual machine detected (QEMU)");
         ExitProcess(0);
@@ -119,6 +122,31 @@ inline void AntiRE_DetectTimeAttack(void)
     {
         ANTIRE_DEBUG("Time attack detected");
         ExitProcess(0);
+    }
+}
+
+// Calculate build-specific value
+inline size_t AntiRE_GetBuildSpecificValue(void)
+{
+    std::string str = __DATE__;
+    str += __TIME__;
+    std::hash<std::string> hash_fn;
+    size_t hash = hash_fn(str);
+    hash += __LINE__;
+    mdbg_printfA("AntiRE_GetBuildSpecificValue: %s\n", std::to_string(hash).c_str());
+    return hash;
+}
+
+// Random shuffle (this needs proper initialization of Mersenne Twister)
+template <typename RandomIt>
+inline void AntiRE_Shuffle(RandomIt first, RandomIt last)
+{
+    typename std::iterator_traits<RandomIt>::difference_type i, num;
+    num = last - first;
+    for (i = num - 1; i > 0; --i)
+    {
+        using std::swap;
+        swap(first[i], first[genrand_int32() % (i + 1)]);
     }
 }
 

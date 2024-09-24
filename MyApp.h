@@ -16,7 +16,9 @@
 #include <windowsx.h> // ウィンドウズ ヘルパーマクロ ヘッダ
 #include <commctrl.h> // コモン コントロール ヘッダ
 #include <commdlg.h> // コモン ダイアログ ヘッダ
-#include <shlwapi.h> // シェル軽量API
+#include <shellapi.h> // シェルAPI ヘッダ
+#include <shlobj.h> // シェル オブジェクト群 ヘッダ
+#include <shlwapi.h> // シェル軽量API ヘッダ
 #include <string> // std::string, std::wstring など
 #include <vector> // std::vector
 #include <memory> // std::shared_ptr, std::make_shared など
@@ -28,6 +30,7 @@
 //#include <strsafe.h> // 文字列バッファを安全に扱うStringCchPrintfなどを使えるようにする
 #include "MCenterWindow.h" // ウィンドウを中央揃えにする
 #include "mdbg.h" // デバッグ時出力
+#include "AntiRE.h" // 逆工学対策
 #include "resource.h" // リソースID群
 
 // 配列の要素数を得るマクロ
