@@ -398,7 +398,7 @@ WinMain(HINSTANCE   hInstance,
     // オブジェクトの生存個数確認
     assert(MObject::s_cAliveObjects == 0);
 
-    // ハンドルリークの検出（デバッグ終了時、数が大きくなっていないか、ときどき確認すること）
+    // ハンドルリークの検出（デバッグ終了時、個数が大きくなっていないか、ときどき確認すること）
 #if (_WIN32_WINNT >= 0x0500) && !defined(NDEBUG)
     TCHAR szText[MAX_PATH];
     wnsprintf(szText, _countof(szText), TEXT("GDI Objects: %ld, User Objects: %ld\n"),
