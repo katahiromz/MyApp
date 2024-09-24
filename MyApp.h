@@ -41,6 +41,7 @@
 // DLLをインポートライブラリで自動リンク（MinGWでは無効）
 #pragma comment(lib, "comctl32.lib")
 #pragma comment(lib, "comdlg32.lib")
+#pragma comment(lib, "shell32.lib")
 #pragma comment(lib, "shlwapi.lib")
 
 ////////////////////////////////////////////////////////////////////////////////
